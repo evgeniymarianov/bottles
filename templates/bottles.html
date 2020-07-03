@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    {% if header %}
+    <h1>{{ header }}</h1>
+    {% endif %}
+    {{ text }}
+    <ul>
+        {% for number in count %}
+            {% if number %}
+	    <li>{{ sentecie.format(number) }}</li>
+            {% else %}
+	    <li>{{ sentecie2 }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+  </body>
+</html>

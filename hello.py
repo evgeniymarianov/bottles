@@ -1,4 +1,5 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask
+from flask import render_template
 app = Flask(__name__)
 
 @app.route('/')
@@ -29,25 +30,5 @@ def index():
 
 @app.route('/echo/')
 def echo():
-    print(request.path) # => '/echo/'
-    print('request.data = ' + str(request.data))  
+    print(request.path)  # => '/echo/'
     return request.data
-
-
-@app.route('/args/')
-def args():
-    arguments = {}  
-    for key in request.args:
-        arguments[key] = request.args.getlist(key)
-    return render_template(
-        'args.html',
-	    arguments=arguments
-     )
-
-
-@app.route('/args-json/')
-def argsjson():
-    arguments = {}  
-    for key in request.args:
-        arguments[key] = request.args.getlist(key)
-    return jsonify(arguments=arguments)
